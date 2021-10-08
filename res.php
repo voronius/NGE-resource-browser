@@ -159,7 +159,6 @@ else
 
 		echo "\n <tr>";
 
-		//echo "\n\t<td>".$row['RESOURCE_ID']."</td>";
 
 
 		$resource_class=$resource_classes[strval($row['RESOURCE_CLASS'])];
@@ -169,7 +168,6 @@ else
 
 		//interpret encoded attribute data
 		echo "\n\t";
-		//echo $row['ATTRIBUTES'];
 
 
 		$resource_stat_display=array
@@ -324,7 +322,6 @@ else
 		$depleted_date=date('Y-M-d,  H:i:s',$depleted);
 		echo "\n\t<td width=\"150px\">".$depleted_date."</td>";
 
-		//echo "\n\t<td>".$row['DEPLETED_TIMESTAMP']."</td>";
 
 
 

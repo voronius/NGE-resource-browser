@@ -1,29 +1,5 @@
 <div style="position:fixed;top:80px; left:10px">
 <form action="res.php" method="post">
-<!--
-	<input type="radio" name="class_or_type" value="class" autocomplete="off" onchange="if(this.checked) { this.form.select_res_type.disabled=true;this.form.select_res_class.disabled=false;}" checked> From class:</input>
-
-	</br>
-
-	<select name="select_res_class" autocomplete="off">
-		 <option value="Inorganic">ALL</option>
-		 <option value="Inorganic">Inorganic</option>
-		 <option value="Organic">Organic</option>
-		 <option value="Mineral">Mineral</option>
-		 <option value="Ore">Metal</option>
-	</select>
-
-	</br>
-	<input type="radio" name="class_or_type" value="type" autocomplete="off" onchange="if(this.checked) {this.form.select_res_class.disabled=true; this.form.select_res_type.disabled=false;}"> Of type:</input>
-
-	</br>
-	<select name="select_res_type" disabled="true" autocomplete="off">
-		 <option value="Inorganic">Duralloy Steel</option>
-		 <option value="Organic">Ditanium Steel</option>
-		 <option value="Mineral">Polysteel Copper</option>
-		 <option value="Ore">Titanium alluminum</option>
-	</select>
-//-->
 	<label for="">Comma separated 
 	</br> or leave empty
 	</br>(ex.:must,intrusive):</label>
@@ -33,20 +9,6 @@
 	
 	</br>
 	</br>
-	<!--
-	<label for="select_res_planet">Only on planet:</label>
-	</br>
-	<select name="select_res_planet" autocomplete="off">
-		 <option value="All">ALL</option>
-		 <option value="Inorganic">Corellia</option>
-		 <option value="Organic">Naboo</option>
-		 <option value="Mineral">Talus</option>
-		 <option value="Ore">Lok</option>
-	</select>
-	</br>
-	</br>
-	</br>
-	//-->
 	<label for="order_res_attribute">Order by attribute:</label>
 	</br>
 	<select name="order_res_attribute" >

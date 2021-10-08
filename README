@@ -1,5 +1,12 @@
 Disclaimer: use it at your own risk, unmaintained ...
 
+Status : filters resources using keywords, orders them by the selected attribute, has color codding for poor/good/very good, shows percent of caps, shows past (with keywords only search to limit the number) or available as well, has pagination (10 rows by default).
+
+How to use 
+Fill in keywords in the input field like "nab,woo,hide" and chose an attribute for ordering (ex. OQ), you get back all "Naboo Wooly Hide" ordered by quality.
+Very usefull before using resource crates. If no keywords are used it just shows all the currenlty available resources.
+
+
 Tested on Firefox
 
 Purpose is to create a basic resource browser interface that doesn't require additional work (like filling values in GH or feeding xml in there every x days)

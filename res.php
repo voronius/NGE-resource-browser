@@ -62,7 +62,7 @@ if(!empty($_POST))
 		foreach ($search_arr as $item_type)
 		{
 			$item_type=str_replace("_","\\_",addslashes(trim($item_type)));
-			$search_type_query.=" and  ( RESOURCE_CLASS like '%".$item_type."%' )";
+			$search_type_query.="( RESOURCE_CLASS like '%".$item_type."%' ) and ";
 
 
 				
@@ -81,14 +81,14 @@ if(!empty($_POST))
 	//if no specific resources searched enable only_current
 	else
 	{
-		$only_current="and depleted_timestamp >= (select last_save_time from clock)";
+		$only_current="depleted_timestamp >= (select last_save_time from clock) and ";
 		$current=1;
 
 	}
 
 	if(isSet($_POST["current"]))
 	{
-		$only_current="and depleted_timestamp >= (select last_save_time from clock)";
+		$only_current="depleted_timestamp >= (select last_save_time from clock) and ";
 		$current=1;
 
 	}
@@ -107,8 +107,9 @@ if(!empty($_POST))
 }
 
 
-
-$query_order="select  RESOURCE_ID, RESOURCE_NAME, RESOURCE_CLASS, ATTRIBUTES, FRACTAL_SEEDS , (DEPLETED_TIMESTAMP - (SELECT last_save_time FROM clock)) as DEPLETED_TIMESTAMP, substr(ATTRIBUTES, TO_NUMBER(instr(ATTRIBUTES,'".$sort_attribute." ') ) +".(strlen($sort_attribute)+1).") as first_part from resource_types where ATTRIBUTES like '%".$sort_attribute." %' ".$search_type_query." ".$only_current." order by TO_NUMBER(substr(first_part,0,TO_NUMBER(instr(first_part,':'))-1)) desc";
+//TODO - find out which is faster, i suspect that filtering the class 1st on like is faster than attribute filter 1st cause some
+//	 attributes are common to all, but oracle should do optimization anyway ...
+$query_order="select  RESOURCE_ID, RESOURCE_NAME, RESOURCE_CLASS, ATTRIBUTES, FRACTAL_SEEDS , (DEPLETED_TIMESTAMP - (SELECT last_save_time FROM clock)) as DEPLETED_TIMESTAMP, substr(ATTRIBUTES, TO_NUMBER(instr(ATTRIBUTES,'".$sort_attribute." ') ) +".(strlen($sort_attribute)+1).") as first_part from resource_types where ".$only_current." ".$search_type_query." ATTRIBUTES like '%".$sort_attribute." %' order by TO_NUMBER(substr(first_part,0,TO_NUMBER(instr(first_part,':'))-1)) desc";
 //." OFFSET ".$offset." ROWS FETCH NEXT ".$limit." ROWS ONLY";
 
 
@@ -125,7 +126,6 @@ if(!$statement)
 }
 else
 {
-	
 	echo "<table cellpadding=\"20px\"><tr><td valign=\"top\">Chose your options: ";
 	include("form.php");
 	echo "</td><td>";

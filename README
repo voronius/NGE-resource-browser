@@ -3,11 +3,12 @@ Disclaimer: use it at your own risk, unmaintained ...
 Tested on Firefox
 
 Purpose is to create a basic resource browser interface that doesn't require additional work (like filling values in GH or feeding xml in there every x days)
+Don't judge, i learned programming 200 years ago and it shows. I'm sure you can do something better, just do it !
 
 You're free to use/improve/redistribute, i don't care
 
 Install steps:
-1.extracting the archive will create a "res" folder under htdocs on your web server
+1.copy all files in a "res" folder (for example) under htdocs on your web server
 2.check file permission/access settings for access via web
 3.configure db connection data at the top at the "res.php" file and the limit (!!! default 10 results per page !!!) same place
 4.access via some URL like https://127.0.0.1/res/res.php

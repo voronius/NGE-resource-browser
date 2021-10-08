@@ -125,8 +125,6 @@ if(!$statement)
 }
 else
 {
-	oci_execute($statement, OCI_DESCRIBE_ONLY); 
-	$ncols = oci_num_fields($statement);
 	
 	echo "<table cellpadding=\"20px\"><tr><td valign=\"top\">Chose your options: ";
 	include("form.php");

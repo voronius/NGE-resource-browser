@@ -1,5 +1,13 @@
 Disclaimer: use it at your own risk, unmaintained ...
 
+The main idea was to be able to browse the resources WITHOUT creating additional tables/database to move them into.
+   This was the main constraint in mind, not creating additional tables, otherwise you can ofc do better.
+   I know that you can do the parsing in php or some other language and drop them into another table/database for running queries
+   but that would require additional work and maybe setting up crons to do that every hour or so for the newly spawned ...
+   This too you just attach without creating anything else cause it interfaces directly with the existing database.
+   I haven't tested it against a database with an extremely large number of resources (like after years and years of 
+   gameplay) but it should still work.
+
 Status : filters resources using keywords, orders them by the selected attribute, has color codding for poor/good/very good, shows percent of caps, shows past (with keywords only search to limit the number) or available as well, has pagination (10 rows by default).
 
 How to use 
